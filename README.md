@@ -1,8 +1,15 @@
 # se
 UI Test for Software engineers
 
+Instructions :
+  - - Don't commit to master branch
+    - Create a fork
+    - Commit your changes to fork
+    - email us once you are done with test
+    
+# UI Assessment Test
 
-UI Assessment Test
+
 Step 1. Create a 6 column layout with responsive.
  ![Image of Step-1](https://github.com/ui-test/se/blob/master/assets/images/step1.png?raw=true)
 Step 2. Create a Edit Form Should update the width, height, and margin of tiles Dynamically.
@@ -19,3 +26,6 @@ Note:
 1.	Use Angular 2+ any version.
 2.	Push the code in github and share the link.
 3.	If you publish in Heroku its plus.
+
+# Problems?
+Feel free to contact us if something is not clear.
