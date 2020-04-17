@@ -1,0 +1,45 @@
+<div class="card-main">
+    <div class="card" *ngFor="let post of posts" [ngStyle]="{'width': width+'px', 'height': height+'px', 'margin': margin+'px'}">
+        <div class="card-inner">
+            <div class="shape"></div>
+            <div class="crd-heading">{{post.title}}</div>
+            <div class="middle-info">
+                <span>{{post.cardcount}}</span>
+            </div>
+            <div class="star"></div>
+            <div class="more-info" (click)="modalToggle(post)">Info</div>
+            <div class="crd-footer">
+                <a routerLink="/card-details/{{ post.id }}" class="open">Open</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-popup" *ngIf="openModal">
+    <div class="modal-inside">
+        <h2 class="title">{{modalData.heading}}</h2>
+        <p class="info">{{modalData.modalinfo}}</p>
+        <button class="btn-close-modal" (click)="modalClose()">close modal</button>
+    </div>
+</div>
+
+<div class="card-edit close"*ngIf="toggleService.classFlag"  [ngClass]="toggleService.classFlag ? 'open' : 'close' ">
+    <form [formGroup]="cardEdit">
+        <div class="from-group">
+            <label>Tile Width</label>
+            <input type="text" [value]="300" formControlName="tileWidth" class="from-control" placeholder="width in px">
+        </div>
+        <div class="from-group">
+            <label>Tile Height</label>
+            <input type="text" formControlName="tileHeight" class="from-control" placeholder="Height in px">
+        </div>
+        <div class="from-group">
+            <label>Tile Margin</label>
+            <input type="text" formControlName="tileMargin" class="from-control" placeholder="Margin in px">
+        </div>
+        <div class="btn-wrap">
+            <input type="submit" class="btn" value="STORE" (click)="updateCardValuLocalStorage()">
+            <input type="submit" class="btn" value="UPDATE" (click)="cardEditSubmit()">
+        </div>
+    </form>
+</div>

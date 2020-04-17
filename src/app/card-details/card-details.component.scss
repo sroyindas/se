@@ -1,0 +1,39 @@
+.container {
+    width: 100%;
+    max-width: 80%;
+    background: rgba(124, 124, 124, 0.459);
+    padding: 30px;
+    box-sizing: border-box;
+    margin: 20px auto;
+    border-radius: 5px;
+    .btn-back {
+        border-radius: 4px;
+        background-color: #f4511e;
+        border: 1px solid #f4511e;
+        color: #fff;
+        text-align: center;
+        font-size: 16px;
+        padding: 10px 30px 10px 20px;
+        -webkit-transition: all .5s;
+        transition: all .5s;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        &:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 7px;
+            right: -20px;
+            -webkit-transition: .5s;
+            transition: .5s;
+            font-size: 20px;
+        }
+        &:hover {
+            &:after {
+                opacity: 1;
+                right: 11px;
+            }
+        }
+    }
+}
