@@ -15,6 +15,12 @@ export class EditCardComponent implements OnInit {
     tileMargin: '10',
   };
 
+  public UpdateFormValueObject = {
+    tileWidth: '',
+    tileHeight: '',
+    tileMargin: '',
+  };
+
   constructor( public toggleService: ToggleService ) { }
 
   public ngOnInit(): void {
@@ -22,18 +28,18 @@ export class EditCardComponent implements OnInit {
     this.sendDataToParent.emit(this.formValueObject);
   }
   public cardSubmit() {
-    this.sendDataToParent.emit(this.formValueObject);
-    this.formValueObject.tileWidth = this.formValueObject.tileWidth;
-    this.formValueObject.tileHeight = this.formValueObject.tileHeight;
-    this.formValueObject.tileMargin = this.formValueObject.tileMargin;
+    this.UpdateFormValueObject.tileWidth = this.formValueObject.tileWidth;
+    this.UpdateFormValueObject.tileHeight = this.formValueObject.tileHeight;
+    this.UpdateFormValueObject.tileMargin = this.formValueObject.tileMargin;
+    this.sendDataToParent.emit(this.UpdateFormValueObject);
   }
   public updateCardValuLocalStorage() {
     if (
-      this.formValueObject.tileWidth === this.formValueObject.tileWidth ||
-      this.formValueObject.tileHeight === this.formValueObject.tileHeight ||
-      this.formValueObject.tileMargin === this.formValueObject.tileMargin
+      this.UpdateFormValueObject.tileWidth === this.formValueObject.tileWidth ||
+      this.UpdateFormValueObject.tileHeight === this.formValueObject.tileHeight ||
+      this.UpdateFormValueObject.tileMargin === this.formValueObject.tileMargin
       ) {
-      localStorage.setItem('setCardValue', JSON.stringify(this.formValueObject));
+      localStorage.setItem('setCardValue', JSON.stringify(this.UpdateFormValueObject));
     }
   }
   public getSetInitialValue() {
