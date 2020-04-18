@@ -23,23 +23,23 @@
     </div>
 </div>
 
-<div class="card-edit close" *ngIf="toggleService.classFlag"  [ngClass]="toggleService.classFlag ? 'open' : 'close' ">
-    <form #f="ngForm" (ngSubmit)="cardSubmit()">
+<div class="card-edit close"*ngIf="toggleService.classFlag"  [ngClass]="toggleService.classFlag ? 'open' : 'close' ">
+    <form [formGroup]="cardEdit">
         <div class="from-group">
             <label>Tile Width</label>
-            <input type="text" name="tileWidth" [(ngModel)]="formValueObject.tileWidth" class="from-control" placeholder="width in px">
+            <input type="text" [value]="300" formControlName="tileWidth" class="from-control" placeholder="width in px">
         </div>
         <div class="from-group">
             <label>Tile Height</label>
-            <input type="text" name="tileHeight" [(ngModel)]="formValueObject.tileHeight" class="from-control" placeholder="Height in px">
+            <input type="text" formControlName="tileHeight" class="from-control" placeholder="Height in px">
         </div>
         <div class="from-group">
             <label>Tile Margin</label>
-            <input type="text" name="tileMargin" [(ngModel)]="formValueObject.tileMargin" class="from-control" placeholder="Margin in px">
+            <input type="text" formControlName="tileMargin" class="from-control" placeholder="Margin in px">
         </div>
         <div class="btn-wrap">
-            <input type="button" class="btn" value="STORE" (click)="updateCardValuLocalStorage()">
-            <input type="submit" class="btn" value="UPDATE">
+            <input type="submit" class="btn" value="STORE" (click)="updateCardValuLocalStorage()">
+            <input type="submit" class="btn" value="UPDATE" (click)="cardEditSubmit()">
         </div>
     </form>
 </div>
