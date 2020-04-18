@@ -10,25 +10,23 @@ import { ConfigService } from '../service/config.service';
   styleUrls: ['./card-details.component.scss']
 })
 export class CardDetailsComponent implements OnInit {
-
   public details: any;
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private location: Location,
-    private configservice: ConfigService) { }
+    private configservice: ConfigService
+  ) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     const id = +this.activatedRoute.snapshot.paramMap.get('id');
     this.details = this.getPostById(id);
     console.log(this.details);
   }
-
-  getPostById(id: number) {
+  public getPostById(id: number) {
     return this.configservice.getPostById(id);
   }
-
-  getBack() {
+  public getBack() {
     this.location.back();
   }
-
 }

@@ -15,31 +15,6 @@
     </div>
 </div>
 
-<div class="modal-popup" *ngIf="openModal">
-    <div class="modal-inside">
-        <h2 class="title">{{modalData.heading}}</h2>
-        <p class="info">{{modalData.modalinfo}}</p>
-        <button class="btn-close-modal" (click)="modalClose()">close modal</button>
-    </div>
-</div>
+<app-info-modal *ngIf="openModal" [getDataToParent]="sendDataToChild" (sendModalCloseDataToParent)=parentModalClose($event)></app-info-modal>
 
-<div class="card-edit close" *ngIf="toggleService.classFlag"  [ngClass]="toggleService.classFlag ? 'open' : 'close' ">
-    <form #f="ngForm" (ngSubmit)="cardSubmit()">
-        <div class="from-group">
-            <label>Tile Width</label>
-            <input type="text" name="tileWidth" [(ngModel)]="formValueObject.tileWidth" class="from-control" placeholder="width in px">
-        </div>
-        <div class="from-group">
-            <label>Tile Height</label>
-            <input type="text" name="tileHeight" [(ngModel)]="formValueObject.tileHeight" class="from-control" placeholder="Height in px">
-        </div>
-        <div class="from-group">
-            <label>Tile Margin</label>
-            <input type="text" name="tileMargin" [(ngModel)]="formValueObject.tileMargin" class="from-control" placeholder="Margin in px">
-        </div>
-        <div class="btn-wrap">
-            <input type="button" class="btn" value="STORE" (click)="updateCardValuLocalStorage()">
-            <input type="submit" class="btn" value="UPDATE">
-        </div>
-    </form>
-</div>
+<app-edit-card (sendDataToParent)=getFromChild($event)></app-edit-card>

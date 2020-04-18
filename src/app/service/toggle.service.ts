@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class ToggleService {
   public classFlag = false;
+
   constructor() { }
 
   public menuToggle() {

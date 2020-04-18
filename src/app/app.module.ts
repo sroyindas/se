@@ -9,7 +9,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { CardListComponent } from './card-list/card-list.component';
 import { CardDetailsComponent } from './card-details/card-details.component';
-
+import { EditCardComponent } from './edit-card/edit-card.component';
+import { InfoModalComponent } from './info-modal/info-modal.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,9 @@ import { CardDetailsComponent } from './card-details/card-details.component';
     HeaderComponent,
     FooterComponent,
     CardListComponent,
-    CardDetailsComponent
+    CardDetailsComponent,
+    EditCardComponent,
+    InfoModalComponent
   ],
   imports: [
     BrowserModule,
